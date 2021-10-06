@@ -1,0 +1,12 @@
+    String url = "https://example.com/webapi";
+
+    OkHttp3CookieHelper cookieHelper = new OkHttp3CookieHelper();
+    cookieHelper.setCookie(url, "cookie_name", "cookie_value");
+
+    OkHttpClient client = new OkHttpClient.Builder()
+            .cookieJar(cookieHelper.cookieJar())
+            .build();
+
+    Request request = new Request.Builder()
+            .url(url)
+            .build();
